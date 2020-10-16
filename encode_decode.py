@@ -16,14 +16,20 @@ mode = StringVar()
 Result = StringVar()
 
 ############define function############
-def encode(key, message):
-	pass
+def Encode(key, message):
+	return 'encoding'
 
 def Decode(key, message):
-	pass
+	return 'decoding'
 
+#function to set mode
 def Mode():
-	pass
+	if(mode.get() == 'e'):
+		Result.set(Encode(private_key.get(), Text.get()))
+	elif(mode.get() == 'd'):
+		Result.set(Decode(private_key.get(), Text.get()))
+	else:
+		Result.set('Invalid Mode')
 
 #function to exit window
 def Exit():
