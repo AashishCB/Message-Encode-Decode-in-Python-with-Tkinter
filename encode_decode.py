@@ -25,11 +25,16 @@ def Decode(key, message):
 def Mode():
 	pass
 
+#function to exit window
 def Exit():
-	pass
+	root.destroy()
 
+#function to reset
 def Reset():
-	pass
+	Text.set("") #cleaning up the contents of the box
+	private_key.set("")
+	mode.set("")
+	Result.set("")
 
 ##########other widgets##########
 #Message
