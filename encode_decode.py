@@ -16,11 +16,22 @@ mode = StringVar()
 Result = StringVar()
 
 ############define function############
+#function to decode
 def Encode(key, message):
-	return 'encoding'
+	enc = []
+	for i in range(len(message)):
+		key_c = key[i % len(key)]
+		enc.append(chr((ord(message[i]) + ord(key_c)) % 256))
+	return base64.urlsafe_b64encode("".join(enc).encode()).decode()
 
+#function to decode
 def Decode(key, message):
-	return 'decoding'
+	dec = []
+	message = base64.urlsafe_b64decode(message).decode()
+	for i in range(len(message)):
+		key_c = key[i % len(key)]
+		dec.append(chr((256 + ord(message[i]) - ord(key_c)) % 256))
+	return "".join(dec)
 
 #function to set mode
 def Mode():
